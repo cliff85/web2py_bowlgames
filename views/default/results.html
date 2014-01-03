@@ -1,0 +1,31 @@
+{{extend 'layout.html'}}
+{{place=0}}
+{{current=0}}
+{{count=1}}
+<h1 class="text-center">Current Results</h1>
+<h2 class="text-center">There are {{=remaining_bowls}} games remaining</h2>
+<table class="table table-hover">
+<tr>
+<th>Place</th>
+<th> Name</th>
+<th> Tie Breaker #1</th>
+<th> Tie Breaker #2</th>
+<th> Tie Breaker #3</th>
+<th> Number of Wins </th></tr>
+{{for result in desc_results:}}
+	{{if int(result[1][0])!=int(current):}}
+		{{place+=count}}
+		{{current=result[1][0]}}
+		<tr>
+		<td>{{=place}}</td> <td><a href="{{=URL('picks', args=result[1][1])}}">{{=result[0]}}</a></td><td>{{=result[1][2]}}</td><td>{{=result[1][3]}}</td><td>{{=result[1][4]}}</td><td><b> {{=result[1][0]}}</b></td>
+		</tr>
+		{{count=1}}
+	{{else:}}
+	<tr>
+	<td>{{=place}}</td> <td><a href="{{=URL('picks', args=result[1][1])}}">{{=result[0]}}</a></td><td>{{=result[1][2]}}</td><td>{{=result[1][3]}}</td><td>{{=result[1][4]}}</td><td><b> {{=result[1][0]}}</b></td>
+	</tr>
+	{{current=result[1][0]}}
+	{{count+=1}}
+	{{pass}}
+{{pass}}
+</table>

@@ -1,0 +1,15 @@
+{{extend 'layout.html'}}
+<h1 class="text-center"> Current Bowl Games Played</h1><br>
+<table class="table table-striped">
+<tr>
+<th>Bowl Name</th>
+<th> Team </th>
+<th> Team </th>
+<th> Game Time </th>
+<th> Score </th></tr>
+{{for bowl in bowls:}}
+<tr>
+<td><a href="{{=URL('bowls', args=bowl.id)}}">{{=bowl.name}}</a></td><td>{{=bowl.team1.teamname}}</td> <td>{{=bowl.team2.teamname}}</td> <td>{{=bowl.gametime}}</td><td><b>{{=bowl.final_result}}</b></td>
+</tr>
+{{pass}}
+</table>

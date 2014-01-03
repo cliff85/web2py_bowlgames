@@ -1,0 +1,16 @@
+{{extend 'layout.html'}} 
+<h1>Most one sided picks</h1>
+<table class="table table-striped">
+<tr>
+<th>Bowl Name</th>
+<th> Team </th>
+<th> Picks </th>
+<th> Team </th>
+<th> Picks </th>
+<th> Difference </th></tr>
+{{for result in print_results:}}
+<tr>
+<td><a href="{{=URL('bowls', args=result[6])}}">{{=result[0]}}</a></td><td>{{=result[1]}}</td><td>{{=result[2]}}</td><td>{{=result[3]}}</td><td>{{=result[4]}}</td><td>{{='%.2f' % result[5] }}</td>
+</tr>
+{{pass}}
+</table>

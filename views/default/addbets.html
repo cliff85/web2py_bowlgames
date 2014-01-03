@@ -1,0 +1,10 @@
+{{extend 'layout.html'}}
+<h1>{{=personheader[0]['person']}}</h1>
+<br>
+<form method="POST" action="#">
+{{for row in rows:}}
+<div>Bowl Game: {{=row.name}} - <input type="radio" name="pick{{=row.id}}" value="{{=row.team1}}"/>{{=row.team1.teamname}} vs <input type="radio" name="pick{{=row.id}}" value="{{=row.team2}}"/> {{=row.team2.teamname}}</div>
+<hr>
+{{pass}}
+<input type="submit">
+</form>

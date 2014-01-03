@@ -1,0 +1,13 @@
+{{extend 'layout.html'}}
+<h1>{{=person[0]['person']}}: {{=wins}} Wins</h1>
+<table class="table table-striped">
+<tr>
+<th> Bowl Name</th>
+<th> Pick </th>
+<th> Result </th></tr>
+{{for bowl in listbowls:}}
+<tr>
+<td><a href="{{=URL('bowls', args=bowl[4])}}">{{=bowl[0]}}</a></td><td>{{=bowl[1]}}</td> <td>{{=bowl[3]}} <b>{{=bowl[2]}}</b></td>
+</tr>
+{{pass}}
+</table>
